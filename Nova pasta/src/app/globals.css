@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+:root {
+  --background: #060b18;
+  --foreground: #e0e8f0;
+  --primary: #00d4ff;
+  --primary-light: #00e5ff;
+  --accent: #0a1628;
+  --surface: #0d1525;
+  --border: #1a2a44;
+  --muted: #7b8fa8;
+  --neon-glow: 0 0 8px rgba(0, 212, 255, 0.3);
+  --neon-glow-strong: 0 0 15px rgba(0, 212, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.15);
+}
+
+@theme inline {
+  --color-background: #060b18;
+  --color-foreground: #e0e8f0;
+  --color-primary: #00d4ff;
+  --color-primary-light: #00e5ff;
+  --color-accent: #0a1628;
+  --color-surface: #0d1525;
+  --color-border: #1a2a44;
+  --color-muted: #7b8fa8;
+}
+
+html {
+  zoom: 0.75;
+}
+
+html, body {
+  background-color: #060b18 !important;
+  color: #e0e8f0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Dark Sci-Fi / Neon Tech styling */
+.card-tech {
+  background: #0d1525;
+  border: 1px solid #1a2a44;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.card-tech:hover {
+  border-color: #00d4ff44;
+  box-shadow: var(--neon-glow);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00b4d8, #00d4ff);
+  color: #060b18;
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  text-shadow: none;
+}
+.btn-primary:hover { background: linear-gradient(135deg, #00d4ff, #00e5ff); box-shadow: var(--neon-glow); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+
+.btn-secondary {
+  background: #0a1628;
+  color: #a0c4e8;
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 13px;
+  border: 1px solid #1a2a44;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-secondary:hover { background: #122240; border-color: #00d4ff44; color: #e0e8f0; }
+
+.btn-danger {
+  background: #7f1d1d;
+  color: #fca5a5;
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 13px;
+  border: 1px solid #991b1b;
+  cursor: pointer;
+}
+.btn-danger:hover { background: #991b1b; }
+
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #1a2a44;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #0a1628;
+  color: #e0e8f0;
+  transition: border-color 0.2s;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.15);
+}
+.input-field::placeholder { color: #4a5f7a; }
+select.input-field option { background: #0d1525; color: #e0e8f0; }
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-success { background: #052e16; color: #4ade80; border: 1px solid #166534; }
+.badge-warning { background: #422006; color: #fbbf24; border: 1px solid #92400e; }
+.badge-danger { background: #450a0a; color: #f87171; border: 1px solid #991b1b; }
+.badge-info { background: #0c1a3d; color: #60a5fa; border: 1px solid #1e40af; }
+.badge-neutral { background: #0a1628; color: #7b8fa8; border: 1px solid #1a2a44; }
+
+.table-tech {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-tech th {
+  background: #0a1628;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #00d4ff;
+  border-bottom: 1px solid #1a2a44;
+}
+.table-tech td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #111d30;
+  font-size: 13px;
+  color: #c0d0e0;
+}
+.table-tech tr:hover td {
+  background: #0a1628;
+}
+
+/* Responsive table wrapper */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile-friendly table */
+@media (max-width: 768px) {
+  .table-tech th,
+  .table-tech td {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+}
+
+/* Neon accent line on top of page */
+.neon-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+/* Glow text */
+.text-neon {
+  color: #00d4ff;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; color: #1a1d23; }
+  .card-tech { box-shadow: none; border: 1px solid #ccc; background: white; }
+  .table-tech th { background: #f5f5f5; color: #333; }
+  .table-tech td { color: #333; }
+}
